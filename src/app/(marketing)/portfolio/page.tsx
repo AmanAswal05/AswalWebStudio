@@ -78,17 +78,27 @@ export default function PortfolioPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4 mb-12"
+        >
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
             Our Featured <span className="text-primary">Portfolio</span>
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Explore a curated selection of our premium custom designs, fast eCommerce portals, and complex SaaS applications.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter Categories */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-16"
+        >
           {CATEGORIES.map(category => (
             <button
               key={category}
@@ -102,7 +112,7 @@ export default function PortfolioPage() {
               {category}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Project Grid */}
         <motion.div 

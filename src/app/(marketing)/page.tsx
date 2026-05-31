@@ -170,27 +170,37 @@ export default function HomePage() {
       <section className="py-20 bg-card/20 border-t border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center space-y-4 mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4 mb-16"
+          >
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
               What We <span className="text-primary">Specialize In</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               We design and construct digital products using cutting-edge web technologies, tailored for optimal performance.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {HIGHLIGHTS.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="p-8 rounded-3xl border border-card-border bg-card glass-panel-hover flex flex-col items-start space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="p-8 rounded-3xl border border-card-border bg-card glass-panel-hover flex flex-col items-start space-y-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
                 <div className="p-3.5 rounded-2xl bg-primary/10 text-primary">
                   <item.icon className="h-6 w-6" />
                 </div>
                 <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -203,7 +213,13 @@ export default function HomePage() {
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center space-y-4 mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4 mb-16"
+          >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold">
               <Sparkles className="h-3.5 w-3.5" /> High-End Graphic Design Services
             </div>
@@ -213,16 +229,20 @@ export default function HomePage() {
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               Build a strong brand identity with professionally designed brochures and business cards. Combine print and digital presence for a premium reputation.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
             {DESIGN_HIGHLIGHTS.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`p-8 rounded-3xl border flex flex-col justify-between relative transition-all duration-300 ${
                   item.popular
-                    ? 'border-accent bg-card shadow-lg shadow-accent/5 md:-translate-y-2 z-10'
-                    : 'border-card-border bg-card/60 shadow-sm hover:shadow-md'
+                    ? 'border-accent bg-card shadow-lg shadow-accent/5 md:-translate-y-2 z-10 hover:-translate-y-3.5 hover:shadow-accent/15'
+                    : 'border-card-border bg-card/60 shadow-sm hover:shadow-md hover:-translate-y-1.5'
                 }`}
               >
                 {item.popular && (
@@ -278,7 +298,7 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -290,7 +310,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            <div className="space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
               <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
                 Designed for Performance, <br />
                 <span className="text-gradient">Engineered for Success</span>
@@ -312,10 +338,16 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Premium Callout Box */}
-            <div className="p-8 sm:p-12 rounded-3xl border border-primary/25 bg-primary/5 relative overflow-hidden flex flex-col justify-between h-full">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="p-8 sm:p-12 rounded-3xl border border-primary/25 bg-primary/5 relative overflow-hidden flex flex-col justify-between h-full hover:border-primary/50 transition-all duration-300"
+            >
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl" />
               <div className="space-y-6">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/20">
@@ -337,7 +369,7 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -352,14 +384,20 @@ export default function HomePage() {
       {/* Professional Trust Section */}
       <section className="py-16 bg-card/25 border-t border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4 mb-12"
+          >
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
               Why Businesses <span className="text-primary">Trust Aswal Web Studio</span>
             </h2>
             <p className="text-sm text-foreground/70 max-w-xl mx-auto">
               We combine design excellence with robust engineering to deliver clean, scalable solutions.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
             {[
@@ -370,9 +408,13 @@ export default function HomePage() {
               { label: 'Premium Support', desc: 'Dedicated dev warranty' },
               { label: 'Custom Development', desc: 'No templates or bloat' },
             ].map((item, index) => (
-              <div 
+              <motion.div 
                 key={index} 
-                className="p-5 bg-card border border-card-border rounded-2xl shadow-sm text-center flex flex-col items-center justify-between space-y-3 hover:border-primary/30 transition-all group"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="p-5 bg-card border border-card-border rounded-2xl shadow-sm text-center flex flex-col items-center justify-between space-y-3 hover:border-primary/30 hover:-translate-y-1 hover:shadow-md transition-all group"
               >
                 <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
                   <CheckCircle2 className="h-5 w-5" />
@@ -381,7 +423,7 @@ export default function HomePage() {
                   <p className="text-xs sm:text-sm font-bold text-foreground leading-tight">{item.label}</p>
                   <p className="text-[10px] text-foreground/50">{item.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -392,7 +434,13 @@ export default function HomePage() {
         {/* Glow lights */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10"
+        >
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
             Ready to Build <span className="text-gradient">Your Website?</span>
           </h2>
@@ -428,7 +476,7 @@ export default function HomePage() {
               <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
     </div>

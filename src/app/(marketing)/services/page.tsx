@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   Building, 
   ShoppingBag, 
@@ -83,23 +84,32 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4 mb-16"
+        >
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
             Bespoke <span className="text-primary">Services</span> We Offer
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             From simple landing pages to advanced custom databases, we engineer clean, high-performance web systems tailored to your goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card shadow-sm hover:shadow-lg transition-all duration-300 relative group"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card shadow-sm hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 relative group"
               >
                 {service.badge && (
                   <span className="absolute top-6 right-6 px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
@@ -139,7 +149,7 @@ export default function ServicesPage() {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
                 
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -165,7 +165,13 @@ export default function DesignServicesPage() {
         </div>
 
         {/* Branding Info Callout */}
-        <div className="mt-16 p-8 sm:p-12 rounded-3xl border border-card-border bg-card/50 text-center space-y-6 max-w-4xl mx-auto shadow-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 p-8 sm:p-12 rounded-3xl border border-card-border bg-card/50 text-center space-y-6 max-w-4xl mx-auto shadow-sm hover:border-primary/30 transition-all duration-300"
+        >
           <h2 className="text-2xl font-extrabold text-foreground tracking-tight">Launch Your Business Online & Offline</h2>
           <p className="text-sm text-foreground/75 leading-relaxed max-w-2xl mx-auto">
             Combining high-speed Next.js websites with unified business card and brochure branding guarantees that your agency looks premium across every point of client contact.
@@ -179,7 +185,7 @@ export default function DesignServicesPage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </div>
